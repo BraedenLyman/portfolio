@@ -3,19 +3,122 @@
     text-align: center;
 }
 
+.tabGroup {
+    justify-content: center;
+    display: inline-flex;
+    font-size: 40px;
+    line-height: 40px;
+    background: linear-gradient(to right, var(--indigo-9), var(--violet-9));
+    border-radius: 50px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.sections {
+    
+}
+
 .heading {
     font-family: var(--font-family);
     background: linear-gradient(to right, var(--indigo-9), var(--violet-9));
     background-clip: text;
     color: transparent;
-    display: inline-block;
-    margin-top: 120px;
+    margin-top: 180px;
+    font-size: 150px;
+    line-height: 150px;
 }
 
-.heading2 {
+.subHeading {
+    display: block;
+    margin-top: 100px;
+    font-size: 30px;
+    width: 900px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 170px;
+}
+
+.projectSection{
+}
+
+.projectRows {
+    display: inline-flex;
+    height: 560px;
+    gap: 50px;
+    margin-bottom: 200px;
+}
+
+.projTitle { 
+    display: flex;
+    margin-right: 50px;
+    margin-top: 30px;
+    justify-content: end;
+    font-size: 35px;
+}
+
+.projSubTitle {
+    display: flex;
+    margin-right: 50px;
+    justify-content: end;
+    font-size: 20px;
+}
+
+.inProgressHeader {
     font-family: var(--font-family);
     background: linear-gradient(to right, var(--indigo-9), var(--violet-9));
     background-clip: text;
     color: transparent;
-    display: inline-block;
+    font-size: 150px;
+    line-height: 185px;
+}
+
+.inProgressSubHeader {
+    display: block;
+    margin-top: 60px;
+    font-size: 30px;
+    width: 900px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card1 img, .card2 img, .card3 img {
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 60px;
+  }
+
+.card1 {
+    width: 700px;
+    border-radius: 60px;
+}
+
+.card1:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+
+.card2 {
+    width: 1000px;
+    border-radius: 60px;
+}
+
+.card3 {
+    width: 1000px;
+    border-radius: 60px;
+}
+
+.card4 {
+    width: 700px;
+    border-radius: 60px;
+}
+.card5 {
+    width: 700px;
+    border-radius: 60px;
+}
+
+.card6 {
+    width: 1000px;
+    border-radius: 60px;
 }
