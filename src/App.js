@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { ChakraProvider, ColorModeScript, Box, Flex, Spacer, IconButton, Tooltip } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript, Box, Flex, Spacer, IconButton, Tooltip, Slide } from '@chakra-ui/react';
 import theme from './theme/theme';
 import './theme/fonts/fonts.css';
 import ColorToggle from './theme/colorModeToggle';
@@ -18,36 +18,43 @@ function App() {
     <>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <ChakraProvider theme={theme}>
-        <Box p={4}>
+        {/* Header stays visible */}
+        <Box p={4} position="relative" zIndex={20}>
           <Flex align="center">
             <Spacer />
-
-            {/* Theme Color Toggle */}
             <ColorToggle />
-
-            {/* Menu Button */}
             <Tooltip label={showNav ? "Close navigation" : "Open navigation"}>
               <IconButton 
-                icon={showNav ? <FiX /> : <FiMenu />}  
-                aria-label={showNav ? "Close menu" : "Open menu"}  
-                variant="ghost" 
+                icon={showNav ? <FiX /> : <FiMenu />}
+                aria-label="Toggle menu"
+                variant="ghost"
                 onClick={toggleNav}
                 fontSize="24px"
-                _hover={{
-                  transform: 'scale(1.1)',
-            
-                  color: showNav ? 'red.500' : 'blue.500' // color change based on state
+                _hover={{ transform: 'scale(1.1)',
+                  color: showNav ? 'red.500' : 'blue.500'
                 }}
-                _active={{
-                  transform: 'scale(0.95)'
-                }}
-                transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
               />
             </Tooltip>
           </Flex>
         </Box>
 
-        {showNav ? <Navigation /> : <Home />}
+        {/* Navigation with built-in close button */}
+        <Slide 
+          direction="left" 
+          in={showNav}
+          style={{ 
+            zIndex: 10,
+            position: 'fixed',
+            top: '80px',
+            width: '100%',
+            height: '100vh',
+            backgroundColor: 'var(--chakra-colors-chakra-body-bg)'
+          }}
+        >
+          <Navigation />
+        </Slide>
+
+        {!showNav && <Home />}
       </ChakraProvider>
     </>
   );

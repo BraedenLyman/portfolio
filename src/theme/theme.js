@@ -35,15 +35,14 @@ const colors = {
 const components = {
   Button: {
     variants: {
-      primary: (props) => ({
-        bg: props.colorMode === 'dark' ? 'modes.dark.primary' : 'modes.light.primary',
-        color: props.colorMode === 'dark' ? 'modes.dark.text' : 'modes.light.text',
+      themeAware: ({ colorMode }) => ({
         _hover: {
-          bg: props.colorMode === 'dark' ? 'blue.400' : 'blue.600',
+          transform: 'scale(1.1)',
+          color: colorMode === 'light' ? 'orange.500' : 'blue.500'
         },
       }),
-    },
-  },
+    }
+  }
 };
 
 // Global styles
