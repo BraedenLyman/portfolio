@@ -1,88 +1,56 @@
-import '@radix-ui/themes/styles.css';
-import { Heading, Theme, Flex, Tabs, Box, Text, Card, Avatar } from '@radix-ui/themes';
-import QKImage from './images/qk.png';
-import './App.css';
+import React, {useState} from 'react';
+import { ChakraProvider, ColorModeScript, Box, Flex, Spacer, IconButton, Tooltip } from '@chakra-ui/react';
+import theme from './theme/theme';
+import './theme/fonts/fonts.css';
+import ColorToggle from './theme/colorModeToggle';
+import { FiMenu, FiX } from 'react-icons/fi'; 
+import Home from './pages/home';
+import Navigation from './pages/navigation';
 
 function App() {
-  return (
-    <Theme appearance="dark" accentColor="indigo" panelBackground="solid">
-      <Flex direction="column" gap="5">
-        <Tabs.Root defaultValue="work">
-          <Tabs.List className='tabGroup'>
-            <Tabs.Trigger value="work">Work</Tabs.Trigger>
-            <Tabs.Trigger value="about">About</Tabs.Trigger>
-            <Tabs.Trigger value="contact">Contact</Tabs.Trigger>
-          </Tabs.List>
+    const [showNav, setShowNav] = useState(false);
 
-          <Tabs.Content value="work" className="sections">
-            <Heading className="heading">
-              <Text>Hi. I'm Braeden. <br/> A Developer.</Text>
-            </Heading>
-            <Text className='subHeading'>
-              I live for crafting experiences that don't just work beautifully, but work beautifully for everyone.
-            </Text>
-            <div className='projectSection'>
-              <div className='projectRows'>
-                <Card className="card1">
-                  <Text className='projTitle'>Quote Kong</Text>
-                  <Text className='projSubTitle'></Text>
-                  <img src={QKImage}/>
-                </Card>
+    const toggleNav = () => {
+        setShowNav(!showNav);
+    }
+  
+    return (
+    <>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <ChakraProvider theme={theme}>
+        <Box p={4}>
+          <Flex align="center">
+            <Spacer />
 
-                <Card className='card2'>
-                  <Text className='projTitle'>Airplane Identification</Text>
-                  <Text className='projSubTitle'></Text>
-                </Card>
-              </div>
+            {/* Theme Color Toggle */}
+            <ColorToggle />
 
-              <div className='projectRows'>
-                <Card className="card3">
-                  <Text className='projTitle'>ViB Inc.</Text>
-                  <Text className='projSubTitle'></Text>
-                </Card>
+            {/* Menu Button */}
+            <Tooltip label={showNav ? "Close navigation" : "Open navigation"}>
+              <IconButton 
+                icon={showNav ? <FiX /> : <FiMenu />}  
+                aria-label={showNav ? "Close menu" : "Open menu"}  
+                variant="ghost" 
+                onClick={toggleNav}
+                fontSize="24px"
+                _hover={{
+                  transform: 'scale(1.1)',
+            
+                  color: showNav ? 'red.500' : 'blue.500' // color change based on state
+                }}
+                _active={{
+                  transform: 'scale(0.95)'
+                }}
+                transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+              />
+            </Tooltip>
+          </Flex>
+        </Box>
 
-                <Card className='card4'>
-                  <Text className='projTitle'>Chris' Site</Text>
-                  <Text className='projSubTitle'></Text>
-                </Card>
-              </div>
-
-              <div className='inProgress'>
-                <Heading className="inProgressHeader">
-                  <Text>In Progress.</Text>
-                </Heading>
-                <Text className='inProgressSubHeader'>
-                  I live for crafting experiences that don't just work beautifully, but work beautifully for everyone.
-                </Text>
-              </div>
-
-              <div className='projectRows'>
-                <Card className="card5">
-                  <Text className='projTitle'>Lyman Rentals</Text>
-                  <Text className='projSubTitle'></Text>
-                </Card>
-
-                <Card className='card6'>
-                  <Text className='projTitle'>Wired Auto</Text>
-                  <Text className='projSubTitle'></Text>
-                </Card>
-              </div>
-            </div>
-          </Tabs.Content>
-
-          <Tabs.Content value="about" className="sections">
-            <Heading className="heading">
-              <Text>I'm Braeden.</Text>
-            </Heading>
-          </Tabs.Content>
-
-          <Tabs.Content value="contact" className="sections">
-            <Text>Edit your profile or update contact information.</Text>
-          </Tabs.Content>
-        
-        </Tabs.Root>
-      </Flex>
-    </Theme>
+        {showNav ? <Navigation /> : <Home />}
+      </ChakraProvider>
+    </>
   );
 }
+
 export default App;

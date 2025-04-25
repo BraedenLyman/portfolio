@@ -1,0 +1,7 @@
+/* src/theme/fonts/fonts.css */
+@font-face {
+    font-family: 'K2D';
+    src: url('./K2D-Light.ttf') format('truetype');
+    font-style: normal;
+  }
+  
