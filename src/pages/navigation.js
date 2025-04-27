@@ -1,15 +1,21 @@
-import { Stack, Heading, IconButton, Tooltip, Link, useColorMode, HStack } from "@chakra-ui/react";
+import { Stack, Heading, IconButton, Tooltip, useColorMode, HStack } from "@chakra-ui/react";
 import { FaEnvelope, FaLinkedin, FaGithub, FaFacebook} from 'react-icons/fa';
-function Navigation() {
+import { Link } from 'react-router-dom';
+
+function Navigation({ onClose }) {
     const { colorMode } = useColorMode();
     return (
     <>
         <Heading size="md" ml='200' mb='10'>Braeden Lyman</Heading>
         <Stack gap="2" align="flex-start" ml='200'>
+
             <IconButton 
+                as={Link}
+                to="/"
                 aria-label="Home Page"
                 variant="ghost"
                 mb="8"
+                onClick={onClose}
                 _hover={{
                     transform: 'scale(1.1)',
                     color: colorMode === 'light' ? 'orange.500' : 'blue.500'
@@ -21,11 +27,14 @@ function Navigation() {
             >
                 <Heading size="2xl" ml='3'>1. Home</Heading>
             </IconButton>
-            
+    
             <IconButton 
+                as={Link}
+                to="/work"
                 aria-label="Work Page"
                 variant="ghost"
                 mb="8"
+                onClick={onClose}
                 _hover={{
                     transform: 'scale(1.1)',
                     color: colorMode === 'light' ? 'orange.500' : 'blue.500'
@@ -39,9 +48,12 @@ function Navigation() {
             </IconButton>
 
             <IconButton 
+                as={Link}
+                to="/about"
                 aria-label="About Page"
                 variant="ghost"
                 mb="8"
+                onClick={onClose}
                 _hover={{
                     transform: 'scale(1.1)',
                     color: colorMode === 'light' ? 'orange.500' : 'blue.500'
@@ -55,9 +67,12 @@ function Navigation() {
             </IconButton>
 
             <IconButton 
+                as={Link}
+                to="/contact"
                 aria-label="Contact Page"
                 variant="ghost"
                 mb="8"
+                onClick={onClose}
                 _hover={{
                     transform: 'scale(1.1)',
                     color: colorMode === 'light' ? 'orange.500' : 'blue.500'

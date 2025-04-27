@@ -1,4 +1,5 @@
 import { Heading, Box, Flex, IconButton, useColorMode, HStack } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
 
 function Home() {
   const { colorMode } = useColorMode();
@@ -19,6 +20,8 @@ function Home() {
         </Heading>
         <HStack spacing="200" mt="100">
             <IconButton 
+              as={Link}
+              to="/work"
               p={5}
               aria-label="Open Work Section"
               variant="ghost"
@@ -36,6 +39,8 @@ function Home() {
               </Heading>
             </IconButton>
             <IconButton 
+              as={Link}
+              to="/about"
               p={5}
               aria-label="Open About Section"
               variant="ghost"
