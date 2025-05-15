@@ -1,99 +1,136 @@
 import { useState } from 'react';
-import { Heading, Box, Flex, Divider, VStack, Link, Image } from "@chakra-ui/react";
+import { 
+  Heading, 
+  Box, 
+  Flex, 
+  Divider, 
+  VStack, 
+  Link, 
+  Image
+} from "@chakra-ui/react";
+import { keyframes } from '@emotion/react';
 
 function Work() {
   const [hoveredProject, setHoveredProject] = useState(null);
 
   const workItems = [
     { title: "Quote Kong", link: "#", imageUrl: "/images/qk.png" },
-    { title: "Project 2", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+2" },
-    { title: "Project 3", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+3" },
-    { title: "Project 4", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+4" },
-    { title: "Project 5", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+5" },
-    { title: "Project 6", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+6" }
+    { title: "Airplane Identification", link: "#", imageUrl: "/images/ai.png" },
+    { title: "ViB Digital", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+3" },
+    { title: "Lyman Rentals", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+4" },
+    { title: "Windrush Technical", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+5" },
+    { title: "ParentPal", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+6" }
   ];
 
+  const fadeIn = keyframes`
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+  `;
+
   return (
-    <Box minH="60vh">
-      <Flex
-        direction="row" // Changed to row to accommodate left image
-        justify="space-between"
-        style={{ marginRight: "200px", marginTop: "200px" }}
+    <Box 
+      position="fixed"
+      bottom="0"    
+      left="0"      
+      right="0"
+      display="flex"
+      justifyContent="flex-start"
+      zIndex="1"  
+    >
+      <Flex 
+        width="100%" 
       >
-        {/* Image container on the left */}
-        <Box width="750px" height="514px" position="sticky" top="200px">
-          {hoveredProject ? (
+        <Box 
+          width="750px" 
+          height="514px" 
+          position="sticky" 
+          bottom="0"
+          borderRadius="0 50px 0 0"
+          overflow="hidden"
+          alignSelf="flex-end"
+        >
+          {hoveredProject && (
             <Image 
               src={hoveredProject.imageUrl} 
               alt={hoveredProject.title}
-              objectFit="cover"
-              width="100%"
+              objectFit="cover" 
+              width="100%" 
               height="100%"
-              borderRadius="0px 50px 0px 0px"
-              opacity={0}
-              animation="fadeIn 0.3s ease-out forwards"
-              css={{
-                "@keyframes fadeIn": {
-                  "0%": { opacity: 0, transform: "scale(0.95)" },
-                  "100%": { opacity: 1, transform: "scale(1)" }
-                }
-              }}
-              _hover={{ transform: "scale(1.02)" }}
+              animation={`${fadeIn} 0.3s ease-out forwards`}
               transition="all 0.3s ease-out"
+              _hover={{ transform: "scale(1.02)" }}
             />
-          ) : (<Box/>
           )}
         </Box>
-
-        {/* Projects list on the right */}
-        <Flex direction="column" align="flex-end">
-          <div style={{display: "flex"}}>
-            <Heading size="2xl" mr="60">
-              My Work
-            </Heading>
-            <Heading size="lg" style={{alignContent: "flex-end"}}>
+        
+        <Flex 
+          direction="column" 
+          ml={4}
+          alignSelf="flex-end"
+          mb={4}          
+        >
+          <Flex justify="space-between" align="center">
+            <Heading fontSize="48px">My Work</Heading>
+            <Heading fontSize="30px" alignSelf="flex-end">
               {workItems.length}
             </Heading>
-          </div>
+          </Flex>
+          
           <Divider 
-            width="450px"
-            borderColor="white"
-            borderWidth="2px"
-            borderRadius="10px"
-            mt={2}
-            mb={4} 
+            width="450px" 
+            borderColor="white" 
+            borderWidth="2px" 
+            borderRadius="10px" 
+            my={4}
           />
-          {/* Scrollable work items container */}
+          
           <Box 
-            maxH="40vh" 
+            maxHeight="40vh" 
             overflowY="auto" 
-            width="450px"
+            width="450px" 
             pr={4}
+            css={{
+              '&::-webkit-scrollbar': {
+                width: '4px',
+              },
+              '&::-webkit-scrollbar-track': {
+                width: '6px',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                background: 'white',
+                borderRadius: '24px',
+              },
+            }}
           >
-            <VStack spacing={0} align="stretch" divider={<Divider borderColor="white" borderWidth="1px" borderRadius="10px"/>}>
+            <VStack 
+              spacing={0} 
+              divider={
+                <Divider 
+                  borderColor="white" 
+                  borderWidth="1px" 
+                  borderRadius="10px" 
+                />
+              }
+              align="stretch"
+            >
               {workItems.map((item, index) => (
-                <Link 
+                <Link
                   key={index} 
-                  as={Link}
-                  href={item.link} 
+                  href={item.link}
+                  display="flex" 
+                  alignItems="center" 
+                  width="100%" 
+                  py={3}
                   _hover={{ 
-                    textDecoration: "none",
-                    transform: "translateX(-5px)"
+                    textDecoration: "none", 
+                    transform: "translateX(-5px)",
                   }}
                   transition="all 0.2s"
                   onMouseEnter={() => setHoveredProject(item)}
                   onMouseLeave={() => setHoveredProject(null)}
-                  width="100%"
-                  py={4} 
-                  display="flex"
-                  alignItems="center"
                 >
-                  <Box p={2}>
-                    <Heading
-                      size="md" // Changed from "md" to "xl" for larger text
-                    >
-                      {item.title}
-                    </Heading>
+                  <Box px={3}>
+                    <Heading fontSize="20px">{item.title}</Heading>
                   </Box>
                 </Link>
               ))}
