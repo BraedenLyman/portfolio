@@ -10,6 +10,7 @@ import Work from './pages/work';
 import About from './pages/about';
 import Contact from './pages/contact';
 import Navigation from './pages/navigation';
+import QuoteKong from './pages/workPages/quoteKong';
 
 function App() {
     const [showNav, setShowNav] = useState(false);
@@ -64,6 +65,7 @@ function App() {
               <Route path="/work" element={<Work />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/work/quote-kong" element={<QuoteKong />} />
             </Routes>
           </Router>
       </ChakraProvider>

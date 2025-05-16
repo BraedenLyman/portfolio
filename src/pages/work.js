@@ -5,16 +5,17 @@ import {
   Flex, 
   Divider, 
   VStack, 
-  Link, 
+  Link as ChakraLink,
   Image
 } from "@chakra-ui/react";
 import { keyframes } from '@emotion/react';
+import { Link } from 'react-router-dom';
 
 function Work() {
   const [hoveredProject, setHoveredProject] = useState(null);
 
   const workItems = [
-    { title: "Quote Kong", link: "#", imageUrl: "/images/qk.png" },
+    { title: "Quote Kong", link: "/work/quote-kong", imageUrl: "/images/qk.png" },
     { title: "Airplane Identification", link: "#", imageUrl: "/images/ai.png" },
     { title: "ViB Digital", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+3" },
     { title: "Lyman Rentals", link: "#", imageUrl: "https://via.placeholder.com/400x300?text=Project+4" },
@@ -114,8 +115,10 @@ function Work() {
               align="stretch"
             >
               {workItems.map((item, index) => (
-                <Link
+                <ChakraLink
                   key={index} 
+                  as={Link}
+                  to={item.link}
                   href={item.link}
                   display="flex" 
                   alignItems="center" 
@@ -132,7 +135,7 @@ function Work() {
                   <Box px={3}>
                     <Heading fontSize="20px">{item.title}</Heading>
                   </Box>
-                </Link>
+                </ChakraLink>
               ))}
             </VStack>
           </Box>
