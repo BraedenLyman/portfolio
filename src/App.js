@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ChakraProvider, ColorModeScript, Box, Flex, Spacer, IconButton, Tooltip, Slide } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript, Box, Flex, Spacer, IconButton, Tooltip, Slide, Image } from '@chakra-ui/react';
 import theme from './theme/theme';
 import './theme/fonts/fonts.css';
 import ColorToggle from './theme/colorModeToggle';
@@ -25,22 +25,33 @@ function App() {
       <ChakraProvider theme={theme}>
       <Router>
           {/* Header stays visible */}
-          <Box p={4} position="relative" zIndex={20}>
-            <Flex align="center">
+       
+          <Box p={4}  position="relative" zIndex={20}>   
+            <Flex align="flex-start" >
+              <Image 
+                src='/images/logo.png'
+                maxH="100px"  // Adjust height as needed
+                alt="Logo"
+                mt={0}
+              />
               <Spacer />
-              <ColorToggle />
-              <Tooltip label={showNav ? "Close navigation" : "Open navigation"}>
-                <IconButton 
-                  icon={showNav ? <FiX /> : <FiMenu />}
-                  aria-label="Toggle menu"
-                  variant="ghost"
-                  onClick={toggleNav}
-                  fontSize="24px"
-                  _hover={{ transform: 'scale(1.1)',
-                    color: showNav ? 'red.500' : 'blue.500'
-                  }}
-                />
-              </Tooltip>
+
+              <Flex align="flex-start" mt={0}> 
+                <ColorToggle />
+                <Tooltip label={showNav ? "Close navigation" : "Open navigation"}>
+                  <IconButton 
+                    icon={showNav ? <FiX /> : <FiMenu />}
+                    aria-label="Toggle menu"
+                    variant="ghost"
+                    onClick={toggleNav}
+                    fontSize="24px"
+                    _hover={{ transform: 'scale(1.1)',
+                      color: showNav ? 'red.500' : 'blue.500'
+                    }}
+                    mt={0}
+                  />
+                </Tooltip>
+              </Flex>
             </Flex>
           </Box>
 
