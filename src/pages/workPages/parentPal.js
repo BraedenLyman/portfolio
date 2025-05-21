@@ -1,20 +1,20 @@
 
 import ProjectTemplate from "./projectTemplate";
 
-function QuoteKong() {
+function ParentPal() {
   return (
     <ProjectTemplate
-      imageUrl="/images/qk.png"
-      title="Quote Kong"
+      imageUrl="/images/ai.png"
+      title="Parent Pal"
       category="Web Development"
       year="2025"
       description="A revolutionary quote generation platform with AI integration."
-      prevProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
-      nextProject={{ name: "Airplane Identification", url: "/work/airplane-identification" }}
+      prevProject={{ name: "Windrush Technical", url: "/work/windrush-tech" }}
+      nextProject={{ name: "Quote Kong", url: "/work/quote-kong" }}
     >
       {/* Additional custom content if needed */}
     </ProjectTemplate>
   );
 }
 
-export default QuoteKong;
+export default ParentPal;

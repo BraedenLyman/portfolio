@@ -9,8 +9,10 @@ import {
   IconButton, 
   useColorMode,
   Text,
-  VStack
+  VStack,
+  useColorModeValue
 } from "@chakra-ui/react";
+
 import { FaEnvelope, FaLinkedin, FaGithub, FaFacebook } from 'react-icons/fa';
 
 function Contact() {
@@ -43,25 +45,28 @@ function Contact() {
     }
   ];
 
+  const dividerColor = useColorModeValue("gray.300", "white");
+
   return (
     <Box>
       <Flex 
         direction="column" 
-        minH="80vh"
-        ml={{ base: 4, md: 400 }}
-        mt={{ base: 8, md: 100 }}
-        px={{ base: 4, md: 0 }}
+        mt="60"
+        align="center"
+        mx={{base: "10", md: "auto"}}
+        maxWidth="750"
       >
-        <VStack align="flex-start" spacing={6}>
-          <Heading fontSize={{ base: "48px", md: "60px" }}>
+        <VStack align="flex-start" spacing={6} >
+          <Heading fontSize="48px">
             Contact
           </Heading>
           
           <Divider 
-            width={{ base: "100%", md: "650px" }}
-            borderColor="white" 
-            borderWidth="2px" 
+            width="100%"
+            borderColor={dividerColor} 
+            borderWidth="1px" 
             borderRadius="10px"
+            mt="-3"
           />
           
           <Text 
@@ -70,19 +75,20 @@ function Contact() {
             whiteSpace="pre-line"
           >
             Let's connect! <br/><br/>
-            Reach me at braedenlyman7@gmail.com or through my social media <br/>
+            Reach me at braedenlyman7@gmail.com or through my social media
             links below. Let's build something cool.
           </Text>
           
           <HStack wrap="wrap" ml={-3}>
             {socialLinks.map((link, index) => (
-              <Tooltip key={index} label={link.label} hasArrow>
+              <Tooltip key={index} label={link.label}>
                 <Link href={link.href} isExternal>
                   <IconButton 
                     icon={link.icon}
                     aria-label={link.aria}
                     variant="ghost"
-                    size="lg"
+                    fontSize="30px"
+                    mr="3"
                     _hover={{ 
                       transform: 'scale(1.1)', 
                       color: colorMode === 'light' ? 'orange.500' : 'blue.500' 

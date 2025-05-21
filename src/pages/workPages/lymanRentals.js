@@ -1,20 +1,20 @@
 
 import ProjectTemplate from "./projectTemplate";
 
-function QuoteKong() {
+function LymanRentals() {
   return (
     <ProjectTemplate
-      imageUrl="/images/qk.png"
-      title="Quote Kong"
+      imageUrl="/images/ai.png"
+      title="Lyman Rentals"
       category="Web Development"
       year="2025"
       description="A revolutionary quote generation platform with AI integration."
-      prevProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
-      nextProject={{ name: "Airplane Identification", url: "/work/airplane-identification" }}
+      prevProject={{ name: "ViB Digital", url: "/work/vib-digital" }}
+      nextProject={{ name: "Windrush Technical", url: "/work/windrush-tech" }}
     >
       {/* Additional custom content if needed */}
     </ProjectTemplate>
   );
 }
 
-export default QuoteKong;
+export default LymanRentals;

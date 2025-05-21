@@ -1,4 +1,5 @@
-import { Heading, Box, Image, Divider, Text, Grid } from "@chakra-ui/react";
+import { Heading, Box, Image, Divider, Text, Grid, Flex, IconButton, useColorModeValue } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 const ProjectTemplate = ({
     imageUrl,
@@ -6,8 +7,16 @@ const ProjectTemplate = ({
     category,
     year,
     description,
-    children
+    children,
+    nextProject, 
+    prevProject
 }) => {
+
+    const textColor = useColorModeValue("gray.800", "white");
+    const dividerColor = useColorModeValue("gray.300", "white");
+    const secondaryTextColor = useColorModeValue("gray.600", "gray.400");
+    const iconColor = useColorModeValue("gray.600", "white");
+
     return (
         <Box maxW={{ base: "100%", md: "container.xl" }} mx="auto">
             <Box position="relative">
@@ -28,14 +37,14 @@ const ProjectTemplate = ({
                     mt={8}
                 >
                     <Heading            
-                        color="white"
+                        color={textColor}
                         size="2xl"
                     >
                         {title}
                     </Heading>
                     
                     <Divider 
-                        borderColor="white" 
+                        borderColor={dividerColor}
                         borderWidth="1px" 
                         borderRadius="10px" 
                         my={4}
@@ -48,18 +57,39 @@ const ProjectTemplate = ({
                         alignItems="flex-start"
                     >
                         <Box>
-                            <Heading size="md" mb="2">Category</Heading>
-                            <Heading size="md" mb="2">Year</Heading>
+                            <Heading size="md" mb="2" color={textColor}>Category</Heading>
+                            <Heading size="md" mb="2" color={textColor}>Year</Heading>
                         </Box>
                         <Box>
-                            <Text mb="2">{category}</Text>
-                            <Text mb="2">{year}</Text>
+                            <Text mb="2" color={textColor}>{category}</Text>
+                            <Text mb="2" color={textColor}>{year}</Text>
                         </Box>
-                        <Box gridColumn={{base: "1 / span 2", md: "auto"}}>
-                            <Text>{description}</Text>
+                        <Box gridColumn={{base: "1 / span 2", md: "auto"}} mr={{md: "5"}}>
+                            <Text color={textColor}>{description}</Text>
                             {children}
                         </Box>
                     </Grid>
+
+                    <Flex justify="space-between" mt="16" mb="8" align="center">
+                        {prevProject && (
+                            <Flex align="center" as="a" href={prevProject.url} textDecoration="none" _hover={{ textDecoration: "none"}}>
+                                <IconButton icon={<ChevronLeftIcon />} aria-label="Previous Project" variant="ghost" color={iconColor} fontSize="2xl" mr="2"/>
+                                <Box textAlign="left">
+                                    <Text fontSize="sm" color={secondaryTextColor}>Previous</Text>
+                                    <Text color={secondaryTextColor}>{prevProject.name}</Text>
+                                </Box>
+                            </Flex>
+                        )}
+                        {nextProject && (
+                            <Flex align="center" as="a" href={nextProject.url} textDecoration="none" _hover={{ textDecoration: "none" }}>
+                                <Box textAlign="right">
+                                    <Text fontSize="sm" color={secondaryTextColor}>Next</Text>
+                                    <Text color={secondaryTextColor}>{nextProject.name}</Text>
+                                </Box>
+                                <IconButton icon={<ChevronRightIcon />} aria-label="Next Project" variant="ghost" color={iconColor} fontSize="2xl" mr="2"/>
+                            </Flex>
+                        )}
+                    </Flex>
                 </Box>
             </Box>
         </Box>

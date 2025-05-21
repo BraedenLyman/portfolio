@@ -1,20 +1,20 @@
 
 import ProjectTemplate from "./projectTemplate";
 
-function QuoteKong() {
+function WindrushTech() {
   return (
     <ProjectTemplate
-      imageUrl="/images/qk.png"
-      title="Quote Kong"
+      imageUrl="/images/ai.png"
+      title="Windrush Technical"
       category="Web Development"
       year="2025"
       description="A revolutionary quote generation platform with AI integration."
-      prevProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
-      nextProject={{ name: "Airplane Identification", url: "/work/airplane-identification" }}
+      prevProject={{ name: "Lyman Rentals", url: "/work/lyman-rentals" }}
+      nextProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
     >
       {/* Additional custom content if needed */}
     </ProjectTemplate>
   );
 }
 
-export default QuoteKong;
+export default WindrushTech;

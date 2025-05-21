@@ -1,13 +1,37 @@
-import { Stack, Heading, IconButton, Tooltip, useColorMode, HStack } from "@chakra-ui/react";
+import { Stack, Heading, IconButton, Tooltip, useColorMode, HStack, Box } from "@chakra-ui/react";
 import { FaEnvelope, FaLinkedin, FaGithub, FaFacebook} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+const MotionBox = motion(Box);
+const MotionStack = motion(Stack);
 
 function Navigation({ onClose }) {
     const { colorMode } = useColorMode();
+    const [isMounted, setIsMounted] = useState(false);
+    
+    useEffect(() => {
+        setIsMounted(true);
+        return () => setIsMounted(false);
+    }, []);
+
     return (
-    <>
-        <Heading size="md" ml='200' mb='10'>Braeden Lyman</Heading>
-        <Stack gap="2" align="flex-start" ml='200'>
+        <MotionBox
+            initial={{ y: -100, opacity: 0 }}
+            animate={isMounted ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
+            exit={{ y: -100, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+            <MotionStack
+                gap="2"
+                align="flex-start"
+                ml={{ base: '6', md: '200' }}
+                initial={{ opacity: 0 }}
+                animate={isMounted ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+            >
+                <Heading size="md" ml='200' mb='10'>Braeden Lyman</Heading>
+            <Stack gap="2" align="flex-start" ml='200'>
 
             <IconButton 
                 as={Link}
@@ -164,7 +188,9 @@ function Navigation({ onClose }) {
                 </Tooltip>
             </HStack>
         </Stack>
-    </>
+    </MotionStack>
+    </MotionBox>
+
   );
 }
 
