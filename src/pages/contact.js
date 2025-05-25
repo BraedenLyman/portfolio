@@ -51,12 +51,15 @@ function Contact() {
     <Box>
       <Flex 
         direction="column" 
-        mt="60"
+        mt="30"
         align="center"
         mx={{base: "10", md: "auto"}}
         maxWidth="750"
       >
-        <VStack align="flex-start" spacing={6} >
+        <VStack 
+          align="flex-start" 
+          spacing={6} 
+        >
           <Heading fontSize="48px">
             Contact
           </Heading>
