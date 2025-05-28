@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { ChakraProvider, ColorModeScript, Box, Flex, Spacer, IconButton, Tooltip, Image, Center } from '@chakra-ui/react'; // Removed Spinner
 import { motion, AnimatePresence } from 'framer-motion';
 import theme from './theme/theme';
@@ -33,7 +33,6 @@ const AnimatedRoute = ({ children }) => {
 
 const AnimatedRoutes = () => {
   const location = useLocation();
-
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -133,14 +132,22 @@ function App() {
           {/* Main App Content (only visible after loading) */}
           {!isLoading && (
           <>
-            <Box p={4} position="relative" zIndex={20}>
+            <Box 
+              p={4} 
+              position="sticky" 
+              top="0" 
+              zIndex="sticky"
+              width="100%"
+            >
               <Flex align="flex-start">
-                <Image
-                  src='/images/logo.png'
-                  maxH="100px"
-                  alt="Logo"
-                  mt={0}
-                />
+                <Link to="/">
+                  <Image
+                    src='/images/logo.png'
+                    maxH="100px"
+                    alt="Logo"
+                    mt={0}
+                  />
+                </Link>
                 <Spacer />
 
                 <Flex align="flex-start" mt={0}>

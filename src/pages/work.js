@@ -40,8 +40,10 @@ function Work() {
     >
      
       <Box 
-        width={{base: "100%", md: "100%", lg: "60%"}}
-        height={{base: "300px", md: "300px", lg: "550px"}}
+        width={{base: "80%", md: "80%", lg: "60%"}}
+        height={{base: "200px", md: "200px", lg: "550px"}}
+        ml="auto"
+        mr="auto"
         position={isMobile ? "relative" : "sticky"} 
         bottom="0"
         borderRadius={{base: "10", md: "10", lg: "0 50px 0 0"}}
@@ -85,7 +87,7 @@ function Work() {
         <Box 
           flex="1"
           overflowY="auto"
-          maxHeight={{base: "400px", md: "400px"}}
+          maxHeight={{base: "250px", md: "250px", lg: "400px"}}
           pr={3}
         >
           <VStack 
@@ -107,6 +109,7 @@ function Work() {
                 alignItems="center" 
                 width="100%" 
                 py={3}
+                px={3}
                 _hover={{ 
                   textDecoration: "none", 
                   transform: "translateX(-5px)",

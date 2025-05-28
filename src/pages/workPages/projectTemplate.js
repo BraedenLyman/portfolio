@@ -28,6 +28,7 @@ const ProjectTemplate = ({
                     alt={title}
                     borderRadius={{base: "25px", md: "0px 0px 50px 50px", lg: "0px 0px 50px 50px", xl: "0px 0px 50px 50px"}}
                     mx="auto"
+                    
                     display="block"
                     marginTop={{base: "0", md: "-132px", lg: "-132px", xl: "-132px"}}
                 /> 

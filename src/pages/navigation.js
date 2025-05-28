@@ -25,171 +25,174 @@ function Navigation({ onClose }) {
             <MotionStack
                 gap="2"
                 align="flex-start"
-                ml={{ base: '6', md: '200' }}
                 initial={{ opacity: 0 }}
                 animate={isMounted ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
             >
-                <Heading size="md" ml='200' mb='10'>Braeden Lyman</Heading>
-            <Stack gap="2" align="flex-start" ml='200'>
+                <Stack 
+                    gap="2" 
+                    align="flex-start" 
+                    ml={{base: "auto", md: "200", lg: "200"}}
+                    mr={{base: "auto", md: "0", lg: "0"}}
+                    mt="20"
+                >
+                    <IconButton 
+                        as={Link}
+                        to="/"
+                        aria-label="Home Page"
+                        variant="ghost"
+                        mb="8"
+                        onClick={onClose}
+                        _hover={{
+                            transform: 'scale(1.1)',
+                            color: colorMode === 'light' ? 'orange.500' : 'blue.500'
+                        }}
+                        _active={{
+                            transform: 'scale(0.95)'
+                        }}
+                        transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+                    >
+                        <Heading size="2xl" ml='3'>1. Home</Heading>
+                    </IconButton>
+        
+                    <IconButton 
+                        as={Link}
+                        to="/work"
+                        aria-label="Work Page"
+                        variant="ghost"
+                        mb="8"
+                        onClick={onClose}
+                        _hover={{
+                            transform: 'scale(1.1)',
+                            color: colorMode === 'light' ? 'orange.500' : 'blue.500'
+                        }}
+                        _active={{
+                            transform: 'scale(0.95)'
+                        }}
+                        transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+                    >
+                        <Heading size="2xl">2. Work</Heading>
+                    </IconButton>
 
-            <IconButton 
-                as={Link}
-                to="/"
-                aria-label="Home Page"
-                variant="ghost"
-                mb="8"
-                onClick={onClose}
-                _hover={{
-                    transform: 'scale(1.1)',
-                    color: colorMode === 'light' ? 'orange.500' : 'blue.500'
-                }}
-                _active={{
-                    transform: 'scale(0.95)'
-                }}
-                transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-            >
-                <Heading size="2xl" ml='3'>1. Home</Heading>
-            </IconButton>
-    
-            <IconButton 
-                as={Link}
-                to="/work"
-                aria-label="Work Page"
-                variant="ghost"
-                mb="8"
-                onClick={onClose}
-                _hover={{
-                    transform: 'scale(1.1)',
-                    color: colorMode === 'light' ? 'orange.500' : 'blue.500'
-                }}
-                _active={{
-                    transform: 'scale(0.95)'
-                }}
-                transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-            >
-                <Heading size="2xl">2. Work</Heading>
-            </IconButton>
+                    <IconButton 
+                        as={Link}
+                        to="/about"
+                        aria-label="About Page"
+                        variant="ghost"
+                        mb="8"
+                        onClick={onClose}
+                        _hover={{
+                            transform: 'scale(1.1)',
+                            color: colorMode === 'light' ? 'orange.500' : 'blue.500'
+                        }}
+                        _active={{
+                            transform: 'scale(0.95)'
+                        }}
+                        transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+                    >
+                        <Heading size="2xl">3. About</Heading>
+                    </IconButton>
 
-            <IconButton 
-                as={Link}
-                to="/about"
-                aria-label="About Page"
-                variant="ghost"
-                mb="8"
-                onClick={onClose}
-                _hover={{
-                    transform: 'scale(1.1)',
-                    color: colorMode === 'light' ? 'orange.500' : 'blue.500'
-                }}
-                _active={{
-                    transform: 'scale(0.95)'
-                }}
-                transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-            >
-                <Heading size="2xl">3. About</Heading>
-            </IconButton>
+                    <IconButton 
+                        as={Link}
+                        to="/contact"
+                        aria-label="Contact Page"
+                        variant="ghost"
+                        mb="8"
+                        onClick={onClose}
+                        _hover={{
+                            transform: 'scale(1.1)',
+                            color: colorMode === 'light' ? 'orange.500' : 'blue.500'
+                        }}
+                        _active={{
+                            transform: 'scale(0.95)'
+                        }}
+                        transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+                    >
+                        <Heading size="2xl">4. Contact</Heading>
+                    </IconButton>
 
-            <IconButton 
-                as={Link}
-                to="/contact"
-                aria-label="Contact Page"
-                variant="ghost"
-                mb="8"
-                onClick={onClose}
-                _hover={{
-                    transform: 'scale(1.1)',
-                    color: colorMode === 'light' ? 'orange.500' : 'blue.500'
-                }}
-                _active={{
-                    transform: 'scale(0.95)'
-                }}
-                transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-            >
-                <Heading size="2xl">4. Contact</Heading>
-            </IconButton>
-
-            <HStack mt="5">
-                <Tooltip label="Open Gmail">
-                    <Link href="mailto:braedenlyman7@gmail.com" isExternal>
-                        <IconButton 
-                            icon={<FaEnvelope />} 
-                            aria-label="gmail" 
-                            variant="ghost"
-                            fontSize="30px"
-                            mr="3"
-                            _hover={{
-                                transform: 'scale(1.1)',
-                                color: colorMode === 'light' ? 'orange.500' : 'blue.500'
-                            }}
-                            _active={{
-                                transform: 'scale(0.95)'
-                            }}
-                            transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-                        />
-                    </Link>
-                </Tooltip>
-                <Tooltip label="Open LinkedIn">
-                    <Link href="https://www.linkedin.com/in/braedenlyman/" isExternal>
-                        <IconButton 
-                            icon={<FaLinkedin />} 
-                            aria-label="gmail" 
-                            variant="ghost"
-                            fontSize="30px"
-                            mr="3"
-                            _hover={{
-                                transform: 'scale(1.1)',
-                                color: colorMode === 'light' ? 'orange.500' : 'blue.500'
-                            }}
-                            _active={{
-                                transform: 'scale(0.95)'
-                            }}
-                            transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-                        />
-                    </Link>
-                </Tooltip>
-                <Tooltip label="Open GitHub">
-                    <Link href="https://github.com/BraedenLyman" isExternal>
-                        <IconButton 
-                            icon={<FaGithub />} 
-                            aria-label="gmail" 
-                            variant="ghost"
-                            fontSize="30px"
-                            mr="3"
-                            _hover={{
-                                transform: 'scale(1.1)',
-                                color: colorMode === 'light' ? 'orange.500' : 'blue.500'
-                            }}
-                            _active={{
-                                transform: 'scale(0.95)'
-                            }}
-                            transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-                        />
-                    </Link>
-                </Tooltip>
-                <Tooltip label="Open Facebook">
-                    <Link href="https://www.facebook.com/brae.lyman.1" isExternal>
-                        <IconButton 
-                            icon={<FaFacebook />} 
-                            aria-label="gmail" 
-                            variant="ghost"
-                            fontSize="30px"
-                            mr="3"
-                            _hover={{
-                                transform: 'scale(1.1)',
-                                color: colorMode === 'light' ? 'orange.500' : 'blue.500'
-                            }}
-                            _active={{
-                                transform: 'scale(0.95)'
-                            }}
-                            transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-                        />
-                    </Link>
-                </Tooltip>
-            </HStack>
-        </Stack>
-    </MotionStack>
-    </MotionBox>
+                    <HStack mt="5">
+                        <Tooltip label="Open Gmail">
+                            <Link href="mailto:braedenlyman7@gmail.com" isExternal>
+                                <IconButton 
+                                    icon={<FaEnvelope />} 
+                                    aria-label="gmail" 
+                                    variant="ghost"
+                                    fontSize="30px"
+                                    mr="3"
+                                    _hover={{
+                                        transform: 'scale(1.1)',
+                                        color: colorMode === 'light' ? 'orange.500' : 'blue.500'
+                                    }}
+                                    _active={{
+                                        transform: 'scale(0.95)'
+                                    }}
+                                    transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+                                />
+                            </Link>
+                        </Tooltip>
+                        <Tooltip label="Open LinkedIn">
+                            <Link href="https://www.linkedin.com/in/braedenlyman/" isExternal>
+                                <IconButton 
+                                    icon={<FaLinkedin />} 
+                                    aria-label="gmail" 
+                                    variant="ghost"
+                                    fontSize="30px"
+                                    mr="3"
+                                    _hover={{
+                                        transform: 'scale(1.1)',
+                                        color: colorMode === 'light' ? 'orange.500' : 'blue.500'
+                                    }}
+                                    _active={{
+                                        transform: 'scale(0.95)'
+                                    }}
+                                    transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+                                />
+                            </Link>
+                        </Tooltip>
+                        <Tooltip label="Open GitHub">
+                            <Link href="https://github.com/BraedenLyman" isExternal>
+                                <IconButton 
+                                    icon={<FaGithub />} 
+                                    aria-label="gmail" 
+                                    variant="ghost"
+                                    fontSize="30px"
+                                    mr="3"
+                                    _hover={{
+                                        transform: 'scale(1.1)',
+                                        color: colorMode === 'light' ? 'orange.500' : 'blue.500'
+                                    }}
+                                    _active={{
+                                        transform: 'scale(0.95)'
+                                    }}
+                                    transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+                                />
+                            </Link>
+                        </Tooltip>
+                        <Tooltip label="Open Facebook">
+                            <Link href="https://www.facebook.com/brae.lyman.1" isExternal>
+                                <IconButton 
+                                    icon={<FaFacebook />} 
+                                    aria-label="gmail" 
+                                    variant="ghost"
+                                    fontSize="30px"
+                                    mr="3"
+                                    _hover={{
+                                        transform: 'scale(1.1)',
+                                        color: colorMode === 'light' ? 'orange.500' : 'blue.500'
+                                    }}
+                                    _active={{
+                                        transform: 'scale(0.95)'
+                                    }}
+                                    transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+                                />
+                            </Link>
+                        </Tooltip>
+                    </HStack>
+                </Stack>
+            </MotionStack>
+        </MotionBox>
 
   );
 }
