@@ -8,7 +8,9 @@ function ParentPal() {
       title="Parent Pal"
       category="Web Development"
       year="2025"
-      description="A revolutionary quote generation platform with AI integration."
+      description={`
+        <p>In progress...</p>  
+      `}
       prevProject={{ name: "Windrush Technical", url: "/work/windrush-tech" }}
       nextProject={{ name: "Quote Kong", url: "/work/quote-kong" }}
     >

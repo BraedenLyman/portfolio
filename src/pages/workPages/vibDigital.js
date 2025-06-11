@@ -8,7 +8,9 @@ function ViBDigital() {
       title="ViB Digital"
       category="Web Development"
       year="2025"
-      description="A revolutionary quote generation platform with AI integration."
+      description={`
+        <p>ViB description </p>  
+      `}
       prevProject={{ name: "Airplane Identification", url: "/work/airplane-identification" }}
       nextProject={{ name: "Lyman Rentals", url: "/work/lyman-rentals" }}
     >

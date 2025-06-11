@@ -8,7 +8,9 @@ function QuoteKong() {
       title="Quote Kong"
       category="Web Development"
       year="2025"
-      description="A revolutionary quote generation platform with AI integration."
+      description={`
+        <p> QK description /p>
+      `}
       prevProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
       nextProject={{ name: "Airplane Identification", url: "/work/airplane-identification" }}
     >

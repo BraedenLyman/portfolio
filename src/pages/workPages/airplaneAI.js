@@ -8,7 +8,9 @@ function AirplaneAI() {
       title="Airplane Identification"
       category="Web Development"
       year="2025"
-      description="A revolutionary quote generation platform with AI integration."
+      description={`
+        <p>Airplane Description</p>
+      `}
       prevProject={{ name: "Quote Kong", url: "/work/quote-kong" }}
       nextProject={{ name: "ViB Digital", url: "/work/vib-digital" }}
     >

@@ -66,7 +66,7 @@ const ProjectTemplate = ({
                             <Text mb="2" color={textColor}>{year}</Text>
                         </Box>
                         <Box gridColumn={{base: "1 / span 2", md: "auto"}} mr={{md: "5"}}>
-                            <Text color={textColor}>{description}</Text>
+                            <Text color={textColor} dangerouslySetInnerHTML={{ __html: description }}/>
                             {children}
                         </Box>
                     </Grid>

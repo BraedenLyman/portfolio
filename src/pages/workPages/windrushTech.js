@@ -8,7 +8,10 @@ function WindrushTech() {
       title="Windrush Technical"
       category="Web Development"
       year="2025"
-      description="A revolutionary quote generation platform with AI integration."
+      description={`
+        <p>This is a description </p>
+      `}
+      
       prevProject={{ name: "Lyman Rentals", url: "/work/lyman-rentals" }}
       nextProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
     >
