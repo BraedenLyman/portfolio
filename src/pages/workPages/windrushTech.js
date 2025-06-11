@@ -9,7 +9,7 @@ function WindrushTech() {
       category="Web Development"
       year="2025"
       description={`
-        <p>This is a description </p>
+        <p>Windrush Technical is a tree service business serving the GTA with services such as tree removal, tree pruning, land clearing and stump grinding. The aim was to create a website by focusing on simplicity for an online presence.</p>
       `}
       
       prevProject={{ name: "Lyman Rentals", url: "/work/lyman-rentals" }}

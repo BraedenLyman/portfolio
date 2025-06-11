@@ -9,7 +9,7 @@ function QuoteKong() {
       category="Web Development"
       year="2025"
       description={`
-        <p> QK description /p>
+        <p>QuoteKong is a quoting website for Subcontractors that relieves the stress of building out quotes. The goal is to make building out quotes as simple as possible for the user</p>
       `}
       prevProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
       nextProject={{ name: "Airplane Identification", url: "/work/airplane-identification" }}
