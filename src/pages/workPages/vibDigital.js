@@ -4,7 +4,7 @@ import ProjectTemplate from "./projectTemplate";
 function ViBDigital() {
   return (
     <ProjectTemplate
-      imageUrl="/images/ai.png"
+      imageUrl="/images/vib.png"
       title="ViB Digital"
       category="Web Development"
       year="2025"

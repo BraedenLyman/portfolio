@@ -4,7 +4,7 @@ import ProjectTemplate from "./projectTemplate";
 function LymanRentals() {
   return (
     <ProjectTemplate
-      imageUrl="/images/ai.png"
+      imageUrl="/images/lr.png"
       title="Lyman Rentals"
       category="Web Development"
       year="2025"

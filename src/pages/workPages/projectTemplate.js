@@ -22,7 +22,7 @@ const ProjectTemplate = ({
             <Box position="relative">
                 <Image 
                     src={imageUrl}
-                    objectFit="cover"
+                    objectFit="fill"
                     width={{base: "87%", md: "65%", lg: "65%", xl: "65%", }}
                     height={{base: "100%", md: "100%", lg: "100%", xl: "520px"}}
                     alt={title}

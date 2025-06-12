@@ -17,6 +17,7 @@ import ViBDigital from './pages/workPages/vibDigital';
 import LymanRentals from './pages/workPages/lymanRentals';
 import WindrushTech from './pages/workPages/windrushTech';
 import ParentPal from './pages/workPages/parentPal';
+import Haletale from './pages/workPages/haletale';
 
 const AnimatedRoute = ({ children }) => {
   return (
@@ -46,6 +47,7 @@ const AnimatedRoutes = () => {
         <Route path="/work/lyman-rentals" element={<AnimatedRoute><LymanRentals /></AnimatedRoute>} />
         <Route path="/work/windrush-tech" element={<AnimatedRoute><WindrushTech /></AnimatedRoute>} />
         <Route path="/work/parent-pal" element={<AnimatedRoute><ParentPal /></AnimatedRoute>} />
+        <Route path="/work/haletale" element={<AnimatedRoute><Haletale /></AnimatedRoute>} />
       </Routes>
     </AnimatePresence>
   );

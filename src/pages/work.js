@@ -21,11 +21,12 @@ function Work() {
 
   const workItems = [
     { title: "Quote Kong", link: "/work/quote-kong", imageUrl: "/images/qk.png", category: "Web Dev" },
-    { title: "Airplane Identification", link: "/work/airplane-identification", imageUrl: "/images/ai.png", category: "Machine Learning" },
-    { title: "ViB Digital", link: "/work/vib-digital", imageUrl: "https://via.placeholder.com/400x300?text=Project+3", category: "Mobile App" },
-    { title: "Lyman Rentals", link: "/work/lyman-rentals", imageUrl: "https://via.placeholder.com/400x300?text=Project+4", category: "Web Dev" },
-    { title: "Windrush Technical", link: "/work/windrush-tech", imageUrl: "https://via.placeholder.com/400x300?text=Project+5", category: "Web Dev" },
-    { title: "ParentPal", link: "/work/parent-pal", imageUrl: "https://via.placeholder.com/400x300?text=Project+6", category: "Mobile App" }
+    { title: "Airplane Identification", link: "/work/airplane-identification", imageUrl: "/images/cwhm.png", category: "Machine Learning" },
+    { title: "ViB Digital", link: "/work/vib-digital", imageUrl: "/images/vib.png", category: "Mobile App" },
+    { title: "Lyman Rentals", link: "/work/lyman-rentals", imageUrl: "/images/lr.png", category: "Web Dev" },
+    { title: "Windrush Technical", link: "/work/windrush-tech", imageUrl: "/images/wt.png", category: "Web Dev" },
+    { title: "ParentPal", link: "/work/parent-pal", imageUrl: "/images/pp.png", category: "Mobile App" },
+    { title: "Haletale", link: "/work/haletale", imageUrl: "/images/ht.png", category: "Mobile App"}
   ];
 
   return (
@@ -49,13 +50,12 @@ function Work() {
         borderRadius={{base: "10", md: "10", lg: "0 50px 0 0"}}
         overflow="hidden"
         alignSelf="flex-end"
-        border="2px solid black"
       >
         {hoveredProject && (
           <Image 
             src={isMobile ? (hoveredProject?.imageUrl || workItems[0].imageUrl) : hoveredProject?.imageUrl} 
             alt={isMobile ? (hoveredProject.title || workItems[0].title) : hoveredProject?.title}
-            objectFit="contain"
+            objectFit="fill"
             width="100%" 
             height="100%"
             _hover={{ transform: "scale(1.02)" }}

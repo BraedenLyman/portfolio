@@ -4,7 +4,7 @@ import ProjectTemplate from "./projectTemplate";
 function AirplaneAI() {
   return (
     <ProjectTemplate
-      imageUrl="/images/ai.png"
+      imageUrl="/images/cwhm.png"
       title="Airplane Identification"
       category="Web Development"
       year="2025"

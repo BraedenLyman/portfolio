@@ -4,7 +4,7 @@ import ProjectTemplate from "./projectTemplate";
 function WindrushTech() {
   return (
     <ProjectTemplate
-      imageUrl="/images/ai.png"
+      imageUrl="/images/wt.png"
       title="Windrush Technical"
       category="Web Development"
       year="2025"
