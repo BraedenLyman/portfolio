@@ -1,4 +1,4 @@
-import { Heading, Box, Image, Divider, Text, Grid, Flex, IconButton, useColorModeValue } from "@chakra-ui/react";
+import { Heading, Box, Image, Divider, Text, Grid, Flex, IconButton, useColorModeValue, Link } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 const ProjectTemplate = ({
@@ -9,7 +9,11 @@ const ProjectTemplate = ({
     description,
     children,
     nextProject, 
-    prevProject
+    prevProject,
+    embeddedUrl,
+    embeddedHeading,
+    websiteImages,
+    websiteImagesHeading,
 }) => {
 
     const textColor = useColorModeValue("gray.800", "white");
@@ -23,8 +27,8 @@ const ProjectTemplate = ({
                 <Image 
                     src={imageUrl}
                     objectFit="fill"
-                    width={{base: "87%", md: "65%", lg: "65%", xl: "65%", }}
-                    height={{base: "100%", md: "100%", lg: "100%", xl: "520px"}}
+                    width={{base: "550px", md: "650px", lg: "750px", xl: "750px", }}
+                    height={{base: "400px", md: "550px", lg: "550px", xl: "550px"}}
                     alt={title}
                     borderRadius={{base: "25px", md: "0px 0px 50px 50px", lg: "0px 0px 50px 50px", xl: "0px 0px 50px 50px"}}
                     mx="auto"
@@ -70,28 +74,107 @@ const ProjectTemplate = ({
                             {children}
                         </Box>
                     </Grid>
-
-                    <Flex justify="space-between" mt="16" mb="8" align="center">
-                        {prevProject && (
-                            <Flex align="center" as="a" href={prevProject.url} textDecoration="none" _hover={{ textDecoration: "none"}}>
-                                <IconButton icon={<ChevronLeftIcon />} aria-label="Previous Project" variant="ghost" color={iconColor} fontSize="2xl" mr="2"/>
-                                <Box textAlign="left">
-                                    <Text fontSize="sm" color={secondaryTextColor}>Previous</Text>
-                                    <Text color={secondaryTextColor}>{prevProject.name}</Text>
-                                </Box>
-                            </Flex>
-                        )}
-                        {nextProject && (
-                            <Flex align="center" as="a" href={nextProject.url} textDecoration="none" _hover={{ textDecoration: "none" }}>
-                                <Box textAlign="right">
-                                    <Text fontSize="sm" color={secondaryTextColor}>Next</Text>
-                                    <Text color={secondaryTextColor}>{nextProject.name}</Text>
-                                </Box>
-                                <IconButton icon={<ChevronRightIcon />} aria-label="Next Project" variant="ghost" color={iconColor} fontSize="2xl" mr="2"/>
-                            </Flex>
-                        )}
-                    </Flex>
                 </Box>
+
+                {embeddedUrl && (
+                    <Box mt={10} my={10} mx={10}>
+                        {embeddedHeading && (
+                            <Heading size="lg" mb={4} textAlign="center">
+                                {embeddedHeading}
+                            </Heading>
+                        )}
+                        <Flex
+                            borderRadius="lg"
+                            overflow="hidden" 
+                            borderWidth="1px" 
+                            borderColor={dividerColor}
+                            position="relative"
+                            width="100%"
+                            paddingBottom="56.25%"
+                            mt={8}
+                            
+                        >
+                            <iframe
+                                src={embeddedUrl}
+                                title={`Embedded content for ${title}`}
+                                width="100%"
+                                height="100%"
+                                frameBorder="0"
+                                allowFullScreen 
+                                style={{
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0,
+                                }}
+                            >
+                                <p>Your browser does not support iframes.</p>
+                            </iframe>
+                        </Flex>
+                        <Text mt={4} textAlign="right">
+                            <Link href={embeddedUrl} isExternal color="blue.500" _hover={{ textDecoration: "underline" }}>
+                                View this content on its original website
+                            </Link>
+                        </Text>
+                    </Box>
+                )}
+
+                {(websiteImages && websiteImages.length > 0) && (
+                    <Box mt={10} my={10} mx={10}> 
+                        {websiteImagesHeading && (
+                            <Heading size="lg" mb={4} textAlign="center" color={textColor}>
+                                {websiteImagesHeading}
+                            </Heading>
+                        )}
+                        {websiteImages.map((imageSrc, index) => (
+                            <Flex
+                                key={index} 
+                                borderRadius="lg"
+                                overflow="hidden"
+                                borderWidth="1px"
+                                borderColor={dividerColor}
+                                position="relative"
+                                width="100%"
+                                paddingBottom="56.25%" 
+                                mt={index === 0 ? 8 : 10} 
+                                mb={index < websiteImages.length - 1 ? 8 : 0} 
+                            >
+                                <Image
+                                    src={imageSrc}
+                                    alt={`${title} website screenshot ${index + 1}`} 
+                                    objectFit="cover" 
+                                    style={{
+                                        position: "absolute",
+                                        top: 0,
+                                        left: 0,
+                                        width: "100%",
+                                        height: "100%",
+                                    }}
+                                />
+                            </Flex>
+                        ))}
+                    </Box>
+                )}
+
+                <Flex justify="space-between" mt="16" mb="8" align="center">
+                    {prevProject && (
+                        <Flex align="center" as="a" href={prevProject.url} textDecoration="none" _hover={{ textDecoration: "none"}}>
+                            <IconButton icon={<ChevronLeftIcon />} aria-label="Previous Project" variant="ghost" color={iconColor} fontSize="2xl" mr="2"/>
+                            <Box textAlign="left">
+                                <Text fontSize="sm" color={secondaryTextColor}>Previous</Text>
+                                <Text color={secondaryTextColor}>{prevProject.name}</Text>
+                            </Box>
+                        </Flex>
+                    )}
+                    {nextProject && (
+                        <Flex align="center" as="a" href={nextProject.url} textDecoration="none" _hover={{ textDecoration: "none" }}>
+                            <Box textAlign="right">
+                                <Text fontSize="sm" color={secondaryTextColor}>Next</Text>
+                                <Text color={secondaryTextColor}>{nextProject.name}</Text>
+                            </Box>
+                            <IconButton icon={<ChevronRightIcon />} aria-label="Next Project" variant="ghost" color={iconColor} fontSize="2xl" mr="2"/>
+                        </Flex>
+                    )}
+                </Flex>
             </Box>
         </Box>
     );

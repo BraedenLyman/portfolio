@@ -10,6 +10,8 @@ function Haletale() {
       description={`
         <p>Haletale Description</p>
       `}
+      embeddedUrl="https://web.haletale.com/?ShowLogin=ture&_ga=2.16457590.1179923616.1719834913-1487083066.1717506787&_gl=1*12pynui*_gcl_au*MTUzODgyNDE0Mi4xNzQ5NzUyMTQw"
+      embeddedHeading="Haletale Sign In/Sign Up Page"
       prevProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
       nextProject={{ name: "Quote Kong", url: "/work/quote-kong" }}
     >

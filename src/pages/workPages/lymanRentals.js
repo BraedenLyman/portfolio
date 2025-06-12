@@ -13,6 +13,8 @@ function LymanRentals() {
         <p> To establish our online presence quickly, I built our website lymanrentals.ca using Wix, prioritizing speed and ease of use. The site features a clean, visually appealing design with high-quality images of our rentals, easy navigation for browsing inventory, and a seamless contact system for inquiries and bookings. By using Wix, I efficiently created a professional, mobile-friendly website without extensive coding, allowing us to start promoting our business right away.</br></br> </p>
         <p> This project combined creativity with practical execution, turning a personal experience into a functional and marketable online business. </p>
       `}
+      embeddedUrl="https://www.lymanrentals.ca/"
+      embeddedHeading="Lyman Rentals Website"
       prevProject={{ name: "ViB Digital", url: "/work/vib-digital" }}
       nextProject={{ name: "Windrush Technical", url: "/work/windrush-tech" }}
     >
