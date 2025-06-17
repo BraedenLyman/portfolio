@@ -128,10 +128,7 @@ const ProjectTemplate = ({
                         {websiteImages.map((imageSrc, index) => (
                             <Flex
                                 key={index} 
-                                borderRadius="lg"
                                 overflow="hidden"
-                                borderWidth="1px"
-                                borderColor={dividerColor}
                                 position="relative"
                                 width="100%"
                                 paddingBottom="56.25%" 
@@ -148,6 +145,7 @@ const ProjectTemplate = ({
                                         left: 0,
                                         width: "100%",
                                         height: "100%",
+                                        
                                     }}
                                 />
                             </Flex>

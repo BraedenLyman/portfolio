@@ -7,7 +7,7 @@ function LymanRentals() {
       imageUrl="/images/lr.png"
       title="Lyman Rentals"
       category="Web Development"
-      year="2025"
+      year="2024/2025"
       description={`
         <p> Inspired by my brother’s wedding, where we handmade decor and event items, my family and I launched Lyman Rentals. It is a wedding rental business offering unique, handcrafted pieces. </br></br> </p>
         <p> To establish our online presence quickly, I built our website lymanrentals.ca using Wix, prioritizing speed and ease of use. The site features a clean, visually appealing design with high-quality images of our rentals, easy navigation for browsing inventory, and a seamless contact system for inquiries and bookings. By using Wix, I efficiently created a professional, mobile-friendly website without extensive coding, allowing us to start promoting our business right away.</br></br> </p>
@@ -18,7 +18,6 @@ function LymanRentals() {
       prevProject={{ name: "ViB Digital", url: "/work/vib-digital" }}
       nextProject={{ name: "Windrush Technical", url: "/work/windrush-tech" }}
     >
-      {/* Additional custom content if needed */}
     </ProjectTemplate>
   );
 }

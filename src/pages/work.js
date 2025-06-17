@@ -20,13 +20,13 @@ function Work() {
   const isMobile = useBreakpointValue({base: true, md: true, lg: false, xl: false});
 
   const workItems = [
-    { title: "Quote Kong", link: "/work/quote-kong", imageUrl: "/images/qk.png", category: "Web Dev" },
+    { title: "Quote Kong", link: "/work/quote-kong", imageUrl: "/images/QK/qk.png", category: "Web Dev" },
     { title: "Airplane Identification", link: "/work/airplane-identification", imageUrl: "/images/cwhm.png", category: "Machine Learning" },
     { title: "ViB Digital", link: "/work/vib-digital", imageUrl: "/images/vib.png", category: "Mobile App" },
     { title: "Lyman Rentals", link: "/work/lyman-rentals", imageUrl: "/images/lr.png", category: "Web Dev" },
     { title: "Windrush Technical", link: "/work/windrush-tech", imageUrl: "/images/wt.png", category: "Web Dev" },
     { title: "ParentPal", link: "/work/parent-pal", imageUrl: "/images/pp.png", category: "Mobile App" },
-    { title: "Haletale", link: "/work/haletale", imageUrl: "/images/ht.png", category: "Mobile App"}
+    { title: "Haletale", link: "/work/haletale", imageUrl: "/images/Haletale/ht.png", category: "Mobile App"}
   ];
 
   return (
