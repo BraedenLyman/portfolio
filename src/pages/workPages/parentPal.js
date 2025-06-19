@@ -16,7 +16,6 @@ function ParentPal() {
       prevProject={{ name: "Windrush Technical", url: "/work/windrush-tech" }}
       nextProject={{ name: "Haletale", url: "/work/haletale" }}
     >
-      {/* Additional custom content if needed */}
     </ProjectTemplate>
   );
 }

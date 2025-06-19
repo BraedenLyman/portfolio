@@ -9,7 +9,9 @@ function QuoteKong() {
       category="Web Development"
       year="2025"
       description={`
-        <p>As part of a 3-member group on the Quote Kong project, we utilized React with TypeScript to build out three main subcontractor pages. My responsibilities included the creation of dynamic tables and their styling, for two of the pages.</p>
+        <p>Quote Kong is a quoting company in the construction industry that makes it easier for sub-contrators to create and build out quotes for their clients. </p></br>
+        <p>The main responsability for this project was to create the SubContractor page that consists of three tabs. 1. Selection of Scope Lines, 2. Send Out for Tender/Bid, and 3. Purchase Order/Award.</p></br>
+        <p>Collaborating as a group of 3, my focus was on the front end design. I designed the tables for Tab 2 and 3, adding the necessary information for our client.</p>
       `}
       //embeddedUrl="https://app.quotekong.com/"
       embeddedHeading="Quote Kong's Website"
