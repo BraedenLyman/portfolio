@@ -27,8 +27,8 @@ const ProjectTemplate = ({
                 <Image 
                     src={imageUrl}
                     objectFit="fill"
-                    width={{base: "550px", md: "650px", lg: "750px", xl: "750px", }}
-                    height={{base: "400px", md: "550px", lg: "550px", xl: "550px"}}
+                    width={{base: "400px", md: "600px", lg: "600px", xl: "600px", }}
+                    height={{base: "350px", md: "550px", lg: "550px", xl: "550px"}}
                     alt={title}
                     borderRadius={{base: "25px", md: "0px 0px 50px 50px", lg: "0px 0px 50px 50px", xl: "0px 0px 50px 50px"}}
                     mx="auto"
@@ -145,7 +145,6 @@ const ProjectTemplate = ({
                                         left: 0,
                                         width: "100%",
                                         height: "100%",
-                                        
                                     }}
                                 />
                             </Flex>
