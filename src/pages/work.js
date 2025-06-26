@@ -51,10 +51,10 @@ function Work() {
         overflow="hidden"
         alignSelf="flex-end"
       >
-        {hoveredProject && (
+        {!isMobile && hoveredProject && (
           <Image 
-            src={isMobile ? (hoveredProject?.imageUrl || workItems[0].imageUrl) : hoveredProject?.imageUrl} 
-            alt={isMobile ? (hoveredProject.title || workItems[0].title) : hoveredProject?.title}
+            src={hoveredProject?.imageUrl} 
+            alt={hoveredProject?.title}
             objectFit="fill"
             width="100%" 
             height="100%"
@@ -87,7 +87,7 @@ function Work() {
         <Box 
           flex="1"
           overflowY="auto"
-          maxHeight={{base: "250px", md: "250px", lg: "400px"}}
+          maxHeight={{base: "400px", md: "400px", lg: "400px"}}
           pr={3}
         >
           <VStack 

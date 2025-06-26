@@ -1,4 +1,4 @@
-import { Heading, Box, Image, Divider, Text, Grid, Flex, IconButton, useColorModeValue, Link } from "@chakra-ui/react";
+import { Heading, Box, Image, Divider, Text, Grid, Flex, IconButton, useColorModeValue, Link, useBreakpointValue } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 const ProjectTemplate = ({
@@ -22,9 +22,8 @@ const ProjectTemplate = ({
     const dividerColor = useColorModeValue("gray.300", "white");
     const secondaryTextColor = useColorModeValue("gray.600", "gray.400");
     const iconColor = useColorModeValue("gray.600", "white");
-    // Helper function to determine if the URL is a YouTube embed
+    const isMobile = useBreakpointValue({ base: true, md: true, lg: false, xl: false });
     const isYouTubeEmbed = (url) => url && (url.includes("youtube.com/embed/") || url.includes("youtu.be/"));
-    // Helper function to determine if the URL is a Vimeo embed
     const isVimeoEmbed = (url) => url && url.includes("player.vimeo.com/video/");
 
 
@@ -39,7 +38,6 @@ const ProjectTemplate = ({
                     alt={title}
                     borderRadius={{base: "25px", md: "0px 0px 50px 50px", lg: "0px 0px 50px 50px", xl: "0px 0px 50px 50px"}}
                     mx="auto"
-                    
                     display="block"
                     marginTop={{base: "0", md: "-132px", lg: "-132px", xl: "-132px"}}
                 /> 
@@ -90,6 +88,14 @@ const ProjectTemplate = ({
                                 {embeddedHeading}
                             </Heading>
                         )}
+                        {isMobile ? ( // Conditional rendering based on isMobile
+                            <Text textAlign="center">
+                                View the website on your browser: {" "}
+                                <Link href={embeddedUrl} isExternal color="teal.500" _hover={{ textDecoration: "underline" }}>
+                                    {embeddedUrl}
+                                </Link>
+                            </Text>
+                        ) : (
                         <Flex
                             borderRadius="lg"
                             overflow="hidden" 
@@ -117,6 +123,7 @@ const ProjectTemplate = ({
                                 <p>Your browser does not support iframes.</p>
                             </iframe>
                         </Flex>
+                        )}
                         <Text mt={4} textAlign="right">
                             <Link href={embeddedUrl} isExternal color="blue.500" _hover={{ textDecoration: "underline" }}>
                                 View this content on its original website
