@@ -14,12 +14,19 @@ const ProjectTemplate = ({
     embeddedHeading,
     websiteImages,
     websiteImagesHeading,
+    videoHeading,
+    videoUrl,
 }) => {
 
     const textColor = useColorModeValue("gray.800", "white");
     const dividerColor = useColorModeValue("gray.300", "white");
     const secondaryTextColor = useColorModeValue("gray.600", "gray.400");
     const iconColor = useColorModeValue("gray.600", "white");
+    // Helper function to determine if the URL is a YouTube embed
+    const isYouTubeEmbed = (url) => url && (url.includes("youtube.com/embed/") || url.includes("youtu.be/"));
+    // Helper function to determine if the URL is a Vimeo embed
+    const isVimeoEmbed = (url) => url && url.includes("player.vimeo.com/video/");
+
 
     return (
         <Box maxW={{ base: "100%", md: "container.xl" }} mx="auto">
@@ -115,6 +122,69 @@ const ProjectTemplate = ({
                                 View this content on its original website
                             </Link>
                         </Text>
+                    </Box>
+                )}
+                
+                {videoUrl && (
+                    <Box mt={10} my={10} mx={10}>
+                        {videoHeading && (
+                            <Heading size="lg" mb={4} textAlign="center" color={textColor}>
+                                {videoHeading}
+                            </Heading>
+                        )}
+                        <Flex
+                            borderRadius="lg"
+                            overflow="hidden"
+                            borderWidth="1px"
+                            borderColor={dividerColor}
+                            position="relative"
+                            width="100%"
+                            paddingBottom="56.25%" // 16:9 aspect ratio (height / width * 100)
+                            mt={8}
+                        >
+                            {/* Conditional rendering for different video sources */}
+                            {isYouTubeEmbed(videoUrl) || isVimeoEmbed(videoUrl) ? (
+                                <iframe
+                                    src={videoUrl}
+                                    title={`Video for ${title}`}
+                                    width="100%"
+                                    height="100%"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    style={{
+                                        position: "absolute",
+                                        top: 0,
+                                        left: 0,
+                                    }}
+                                >
+                                    <p>Your browser does not support iframes or embedded videos.</p>
+                                </iframe>
+                            ) : (
+                                <video
+                                    src={videoUrl}
+                                    controls // Shows default video controls (play/pause, volume, fullscreen)
+                                    width="100%"
+                                    height="100%"
+                                    style={{
+                                        position: "absolute",
+                                        top: 0,
+                                        left: 0,
+                                        objectFit: "cover", // Ensures the video covers the container
+                                    }}
+                                >
+                                    Your browser does not support the video tag.
+                                </video>
+                            )}
+                        </Flex>
+                        {/* Optional: Link to original video source if it's external */}
+                        {(isYouTubeEmbed(videoUrl) || isVimeoEmbed(videoUrl)) && (
+                            <Text mt={4} textAlign="right">
+                                <Link href={videoUrl} isExternal color="blue.500" _hover={{ textDecoration: "underline" }}>
+                                    Watch this video on its original platform
+                                </Link>
+                            </Text>
+                        )}
                     </Box>
                 )}
 
