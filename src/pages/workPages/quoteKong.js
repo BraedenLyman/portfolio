@@ -22,7 +22,7 @@ function QuoteKong() {
         "/images/QK/qkSub3.png"
       ]}
       prevProject={{ name: "Haletale", url: "/work/haletale" }}
-      nextProject={{ name: "Airplane Identification", url: "/work/airplane-identification" }}
+      nextProject={{ name: "Lyman Rentals", url: "/work/lyman-rentals" }}
     >
       {/* Additional custom content if needed */}
     </ProjectTemplate>

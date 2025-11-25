@@ -1,7 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
 
 const config = {
-  initialColorMode: 'dark', 
+  initialColorMode: 'dark',
   useSystemColorMode: false,
 };
 
@@ -12,6 +12,14 @@ const fonts = {
 
 const colors = {
   brand: {
+    primary: '#6366f1',
+    primaryDark: '#4f46e5',
+    secondary: '#f59e0b',
+    bgDark: '#0f172a',
+    bgDarker: '#020617',
+    textLight: '#f8fafc',
+    textGray: '#94a3b8',
+    glowColor: 'rgba(99, 102, 241, 0.3)',
     900: '#1a365d',
     800: '#153e75',
     700: '#2a69ac',
@@ -24,10 +32,11 @@ const colors = {
       secondary: '#4A5568',
     },
     dark: {
-      text: '#FFFFFF',
-      background: '#1A202C',
-      primary: '#90CDF4',
-      secondary: '#CBD5E0',
+      text: '#f8fafc',
+      background: '#0f172a',
+      backgroundDarker: '#020617',
+      primary: '#6366f1',
+      secondary: '#94a3b8',
     },
   },
 };
@@ -41,6 +50,33 @@ const components = {
           color: colorMode === 'light' ? 'orange.500' : 'blue.500'
         },
       }),
+      gradient: {
+        background: 'linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)',
+        color: 'white',
+        padding: '1rem 2rem',
+        borderRadius: '50px',
+        fontWeight: '600',
+        boxShadow: '0 10px 30px rgba(99, 102, 241, 0.4)',
+        transition: 'all 0.3s ease',
+        _hover: {
+          transform: 'translateY(-3px)',
+          boxShadow: '0 15px 40px rgba(99, 102, 241, 0.6)',
+        },
+      },
+      outline: {
+        background: 'transparent',
+        color: 'brand.textLight',
+        border: '2px solid',
+        borderColor: 'brand.primary',
+        padding: '1rem 2rem',
+        borderRadius: '50px',
+        fontWeight: '600',
+        transition: 'all 0.3s ease',
+        _hover: {
+          background: 'brand.primary',
+          transform: 'translateY(-3px)',
+        },
+      },
     }
   }
 };
@@ -49,9 +85,13 @@ const components = {
 const styles = {
   global: (props) => ({
     body: {
-      bg: props.colorMode === 'dark' ? 'modes.dark.background' : 'modes.light.background',
-      color: props.colorMode === 'dark' ? 'modes.dark.text' : 'modes.light.text',
+      bg: props.colorMode === 'dark' ? '#0f172a' : '#FFFFFF',
+      color: props.colorMode === 'dark' ? '#f8fafc' : '#2D3748',
       transition: 'background-color 0.2s, color 0.2s',
+      overflow: 'auto',
+    },
+    '*': {
+      scrollBehavior: 'smooth',
     },
   }),
 };

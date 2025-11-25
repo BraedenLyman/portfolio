@@ -1,14 +1,15 @@
-import { Heading, Box, Image, Divider, Text, Grid, Flex, IconButton, useColorModeValue, Link, useBreakpointValue } from "@chakra-ui/react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { Heading, Box, Image, Divider, Text, Flex, IconButton, useColorModeValue, Link, useBreakpointValue, Button } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon, ArrowBackIcon } from "@chakra-ui/icons";
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const ProjectTemplate = ({
     imageUrl,
     title,
-    category,
     year,
     description,
     children,
-    nextProject, 
+    nextProject,
     prevProject,
     embeddedUrl,
     embeddedHeading,
@@ -17,7 +18,7 @@ const ProjectTemplate = ({
     videoHeading,
     videoUrl,
 }) => {
-
+    const navigate = useNavigate();
     const textColor = useColorModeValue("gray.800", "white");
     const dividerColor = useColorModeValue("gray.300", "white");
     const secondaryTextColor = useColorModeValue("gray.600", "gray.400");
@@ -26,9 +27,51 @@ const ProjectTemplate = ({
     const isYouTubeEmbed = (url) => url && (url.includes("youtube.com/embed/") || url.includes("youtu.be/"));
     const isVimeoEmbed = (url) => url && url.includes("player.vimeo.com/video/");
 
+    // Scroll to top when component mounts
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+
+    const handleBackToHome = () => {
+        navigate('/');
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+    };
+
 
     return (
         <Box maxW={{ base: "100%", md: "container.xl" }} mx="auto">
+            {/* Back Button */}
+            <Box
+                position="fixed"
+                top={{ base: 4, md: 8 }}
+                left={{ base: 4, md: 8 }}
+                zIndex={1000}
+            >
+                <Button
+                    leftIcon={<ArrowBackIcon />}
+                    onClick={handleBackToHome}
+                    bg="rgba(255, 255, 255, 0.05)"
+                    backdropFilter="blur(10px)"
+                    border="1px solid"
+                    borderColor="rgba(255, 255, 255, 0.1)"
+                    color="brand.textLight"
+                    borderRadius="12px"
+                    px={6}
+                    py={6}
+                    _hover={{
+                        bg: 'brand.primary',
+                        transform: 'translateY(-2px)',
+                        boxShadow: '0 10px 30px rgba(99, 102, 241, 0.4)'
+                    }}
+                    _active={{ transform: 'scale(0.95)' }}
+                    transition="all 0.3s ease"
+                >
+                    Back to Home
+                </Button>
+            </Box>
+
             <Box position="relative">
                 <Image 
                     src={imageUrl}
@@ -46,39 +89,27 @@ const ProjectTemplate = ({
                     transform={{base: "translateX(8%)", md: "translateX(9%)", lg: "translateX(9%)", xl: "translateX(27%)"}}
                     mt={8}
                 >
-                    <Heading            
-                        color={textColor}
-                        size="2xl"
-                    >
-                        {title}
-                    </Heading>
-                    
-                    <Divider 
+                    <Flex justify="space-between" alignItems="baseline" mb={4}>
+                        <Heading color={textColor} size="2xl">
+                            {title}
+                        </Heading>
+                        <Text color={textColor} fontSize="xl" fontWeight="medium">
+                            {year}
+                        </Text>
+                    </Flex>
+
+                    <Divider
                         borderColor={dividerColor}
-                        borderWidth="1px" 
-                        borderRadius="10px" 
+                        borderWidth="1px"
+                        borderRadius="10px"
                         my={4}
                         mx="auto"
                     />
 
-                    <Grid 
-                        templateColumns={{ base: "1fr 1fr", md: "20% 20% 60%" }}
-                        gap={10}
-                        alignItems="flex-start"
-                    >
-                        <Box>
-                            <Heading size="md" mb="2" color={textColor}>Category</Heading>
-                            <Heading size="md" mb="2" color={textColor}>Year</Heading>
-                        </Box>
-                        <Box>
-                            <Text mb="2" color={textColor}>{category}</Text>
-                            <Text mb="2" color={textColor}>{year}</Text>
-                        </Box>
-                        <Box gridColumn={{base: "1 / span 2", md: "auto"}} mr={{md: "5"}}>
-                            <Text color={textColor} dangerouslySetInnerHTML={{ __html: description }}/>
-                            {children}
-                        </Box>
-                    </Grid>
+                    <Box>
+                        <Text color={textColor} dangerouslySetInnerHTML={{ __html: description }}/>
+                        {children}
+                    </Box>
                 </Box>
 
                 {embeddedUrl && (
