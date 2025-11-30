@@ -201,7 +201,7 @@ function Home() {
   ];
 
   return (
-    <Box>
+    <Box overflowX="hidden" width="100%">
       {/* Hero Section */}
       <Box
         id="home"
@@ -210,14 +210,15 @@ function Home() {
         alignItems="center"
         justifyContent="center"
         position="relative"
+        overflow="hidden"
         _before={{
           content: '""',
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: '600px',
-          height: '600px',
+          width: { base: '300px', md: '600px' },
+          height: { base: '300px', md: '600px' },
           background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)',
           borderRadius: '50%',
           filter: 'blur(60px)',
@@ -341,12 +342,14 @@ function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
               position="relative"
+              overflow="hidden"
+              px={{ base: 6, md: 0 }}
             >
               <Box
                 position="absolute"
                 top="-20px"
-                left="-20px"
-                right="20px"
+                left={{ base: "10px", md: "-20px" }}
+                right={{ base: "-10px", md: "20px" }}
                 bottom="20px"
                 bgGradient="linear(135deg, #6366f1, #8b5cf6, #06b6d4)"
                 borderRadius="20px"
@@ -409,7 +412,7 @@ function Home() {
                 <Tooltip label="Download Resume" placement="top">
                   <IconButton
                     as="a"
-                    href="/Resume/Braeden_Lyman_Resume.pdf"
+                    href="/Resume/Braeden-Lyman-Resume.pdf"
                     download="Braeden_Lyman_Resume.pdf"
                     icon={<FaDownload />}
                     aria-label="Download Resume"

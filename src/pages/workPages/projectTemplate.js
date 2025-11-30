@@ -1,4 +1,4 @@
-import { Heading, Box, Image, Divider, Text, Flex, IconButton, useColorModeValue, Link, useBreakpointValue, Button } from "@chakra-ui/react";
+import { Heading, Box, Image, Divider, Text, Flex, IconButton, useColorModeValue, Link, Button } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -23,7 +23,6 @@ const ProjectTemplate = ({
     const dividerColor = useColorModeValue("gray.300", "white");
     const secondaryTextColor = useColorModeValue("gray.600", "gray.400");
     const iconColor = useColorModeValue("gray.600", "white");
-    const isMobile = useBreakpointValue({ base: true, md: true, lg: false, xl: false });
     const isYouTubeEmbed = (url) => url && (url.includes("youtube.com/embed/") || url.includes("youtu.be/"));
     const isVimeoEmbed = (url) => url && url.includes("player.vimeo.com/video/");
 
@@ -119,24 +118,16 @@ const ProjectTemplate = ({
                                 {embeddedHeading}
                             </Heading>
                         )}
-                        {isMobile ? ( // Conditional rendering based on isMobile
-                            <Text textAlign="center">
-                                View the website on your browser: {" "}
-                                <Link href={embeddedUrl} isExternal color="teal.500" _hover={{ textDecoration: "underline" }}>
-                                    {embeddedUrl}
-                                </Link>
-                            </Text>
-                        ) : (
                         <Flex
                             borderRadius="lg"
-                            overflow="hidden" 
-                            borderWidth="1px" 
+                            overflow="hidden"
+                            borderWidth="1px"
                             borderColor={dividerColor}
                             position="relative"
                             width="100%"
-                            paddingBottom="56.25%"
+                            paddingBottom={{ base: "200%", md: "150%", lg: "56.25%", xl: "56.25%" }}
                             mt={8}
-                            
+
                         >
                             <iframe
                                 src={embeddedUrl}
@@ -144,7 +135,7 @@ const ProjectTemplate = ({
                                 width="100%"
                                 height="100%"
                                 frameBorder="0"
-                                allowFullScreen 
+                                allowFullScreen
                                 style={{
                                     position: "absolute",
                                     top: 0,
@@ -154,7 +145,6 @@ const ProjectTemplate = ({
                                 <p>Your browser does not support iframes.</p>
                             </iframe>
                         </Flex>
-                        )}
                         <Text mt={4} textAlign="right">
                             <Link href={embeddedUrl} isExternal color="blue.500" _hover={{ textDecoration: "underline" }}>
                                 View this content on its original website
