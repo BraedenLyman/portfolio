@@ -412,8 +412,8 @@ function Home() {
                 <Tooltip label="Download Resume" placement="top">
                   <IconButton
                     as="a"
-                    href="/Resume/Braeden-Lyman-Resume.pdf"
-                    download="Braeden_Lyman_Resume.pdf"
+                    href="/Resume/Braeden-Resume.pdf"
+                    download="Braeden-Resume.pdf"
                     icon={<FaDownload />}
                     aria-label="Download Resume"
                     size="lg"
