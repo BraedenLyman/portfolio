@@ -14,8 +14,8 @@ function Integr8() {
       `}
       embeddedUrl="https://integr8functionalhealth.ca/"
       embeddedHeading="Integr8 Functional Health's Website"
-      prevProject={{ name: "Lyman Rentals", url: "/work/lyman-rentals" }}
-      nextProject={{ name: "ViB Digital", url: "/work/vib-digital" }}
+      //prevProject={{ name: "Lyman Rentals", url: "/work/lyman-rentals" }}
+      //nextProject={{ name: "ViB Digital", url: "/work/vib-digital" }}
     >
     </ProjectTemplate>
   );

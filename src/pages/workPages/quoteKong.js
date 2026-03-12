@@ -21,8 +21,8 @@ function QuoteKong() {
         "/images/QK/qkSub2.png",
         "/images/QK/qkSub3.png"
       ]}
-      prevProject={{ name: "Haletale", url: "/work/haletale" }}
-      nextProject={{ name: "Lyman Rentals", url: "/work/lyman-rentals" }}
+      //prevProject={{ name: "Haletale", url: "/work/haletale" }}
+      //nextProject={{ name: "Lyman Rentals", url: "/work/lyman-rentals" }}
     >
       {/* Additional custom content if needed */}
     </ProjectTemplate>

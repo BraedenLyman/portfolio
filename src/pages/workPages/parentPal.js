@@ -21,8 +21,8 @@ function ParentPal() {
         "/images/ParentPal/tasks.png",
         "/images/ParentPal/messaging.png",
       ]}
-      prevProject={{ name: "Haletale", url: "/work/haletale" }}
-      nextProject={{ name: "Airplane Identification", url: "/work/airplane-identification" }}
+      //prevProject={{ name: "Haletale", url: "/work/haletale" }}
+      //nextProject={{ name: "Airplane Identification", url: "/work/airplane-identification" }}
     >
     </ProjectTemplate>
   );

@@ -4,8 +4,10 @@ import { ChakraProvider, ColorModeScript, Box } from '@chakra-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import theme from './theme/theme';
 import './theme/fonts/fonts.css';
-import ParticleBackground from './components/ParticleBackground';
 import Home from './pages/home';
+import AboutMe from './pages/aboutMe';
+import Contact from './pages/contact';
+import Work from './pages/work';
 import QuoteKong from './pages/workPages/quoteKong';
 import AirplaneAI from './pages/workPages/airplaneAI';
 import ViBDigital from './pages/workPages/vibDigital';
@@ -43,7 +45,7 @@ const ScrollProgress = () => {
     >
       <Box
         height="100%"
-        bg="linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)"
+        bg="linear-gradient(135deg, #0ea5e9, #14b8a6, #22d3ee)"
         width={`${scrollProgress}%`}
         transition="width 0.3s ease"
       />
@@ -70,6 +72,9 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<AnimatedRoute><Home /></AnimatedRoute>} />
+        <Route path="/about-me" element={<AnimatedRoute><AboutMe /></AnimatedRoute>} />
+        <Route path="/work" element={<AnimatedRoute><Work /></AnimatedRoute>} />
+        <Route path="/contact" element={<AnimatedRoute><Contact /></AnimatedRoute>} />
         <Route path="/work/quote-kong" element={<AnimatedRoute><QuoteKong /></AnimatedRoute>} />
         <Route path="/work/airplane-identification" element={<AnimatedRoute><AirplaneAI /></AnimatedRoute>} />
         <Route path="/work/vib-digital" element={<AnimatedRoute><ViBDigital /></AnimatedRoute>} />
@@ -92,7 +97,6 @@ function App() {
         <Router>
           <>
             <ScrollProgress />
-            <ParticleBackground />
             <AnimatedRoutes />
           </> 
         </Router>

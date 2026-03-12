@@ -14,8 +14,8 @@ function LymanRentals() {
       `}
       embeddedUrl="https://www.lymanrentals.ca/"
       embeddedHeading="Lyman Rentals Website"
-      prevProject={{ name: "Quote Kong", url: "/work/quote-kong" }}
-      nextProject={{ name: "Integr8", url: "/work/integr8-functional-Health" }}
+      //prevProject={{ name: "Quote Kong", url: "/work/quote-kong" }}
+      //nextProject={{ name: "Integr8", url: "/work/integr8-functional-Health" }}
     >
     </ProjectTemplate>
   );

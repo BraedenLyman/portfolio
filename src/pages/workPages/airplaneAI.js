@@ -18,8 +18,8 @@ function AirplaneAI() {
       videoHeading="Installation Video Demo"
       videoUrl="../videos/InstallationVideo.mov"
       
-      prevProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
-      nextProject={{ name: "Quote Kong", url: "/work/quote-kong" }}
+      //prevProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
+      //nextProject={{ name: "Quote Kong", url: "/work/quote-kong" }}
     >
     </ProjectTemplate>
   );

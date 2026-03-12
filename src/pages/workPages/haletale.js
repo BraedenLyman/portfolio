@@ -19,8 +19,8 @@ function Haletale() {
         "/images/Haletale/login.png",
         "/images/Haletale/forgotPassword.png"
       ]}
-      prevProject={{ name: "Windrush Technical", url: "/work/windrush-tech" }}
-      nextProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
+      //prevProject={{ name: "Windrush Technical", url: "/work/windrush-tech" }}
+      //nextProject={{ name: "Parent Pal", url: "/work/parent-pal" }}
     >
       {/* Additional custom content if needed */}
     </ProjectTemplate>
